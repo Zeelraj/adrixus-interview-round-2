@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "ABC XYZ",
+    "email": "abc.xyz@example.com",
+    "contact": "1234567890"
+  },
+  {
+    "id": 2,
+    "name": "DEF MNO",
+    "email": "def.mno@example.com",
+    "contact": "1234567889"
+  },
+  {
+    "id": 3,
+    "name": "PQR EFG",
+    "email": "pqr.efg@example.com",
+    "contact": "9876543210"
+  },
+  {
+    "id": 4,
+    "name": "HIJ LMN",
+    "email": "hij.lmn@example.com",
+    "contact": "9876543294"
+  }
+]

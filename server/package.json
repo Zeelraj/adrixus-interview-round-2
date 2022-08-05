@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Zeelrajsinh Mahida",
@@ -17,6 +18,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.5.1",
     "morgan": "^1.10.0",
+    "swagger-ui-express": "^4.5.0",
+    "validator": "^13.7.0",
     "yamljs": "^0.3.0"
   }
 }
