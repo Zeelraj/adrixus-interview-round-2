@@ -1,0 +1,9 @@
+const PASSWORD_LENGTH = 6;
+const NAME_LENGTH = 40;
+
+const SYSTEM_TYPES = {
+  REGISTER: "REGISTER",
+  LOGIN: "LOGIN",
+};
+
+module.exports = { PASSWORD_LENGTH, NAME_LENGTH, SYSTEM_TYPES };
