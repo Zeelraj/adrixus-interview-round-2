@@ -22,9 +22,11 @@ const jwt = require("jsonwebtoken");
 exports.register = BigPromise(async (req, res) => {
   const { name, email, contact, password } = req.body;
 
-  const token = req.headers["x-access-token"] || req.cookies.token;
+  // const token = req.headers["x-access-token"] || req.cookies.token;
+  const token =
+    req.headers["authorization"] && req.headers["authorization"].split(" ")[1];
 
-  if (token) {
+  if (token && token !== "null" && token !== "undefined") {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     if (decoded) {
@@ -60,10 +62,9 @@ exports.register = BigPromise(async (req, res) => {
   const userExists = await User.findOne({ $or: [{ email }, { contact }] });
 
   if (userExists) {
-    return res.status(400).json({
+    return res.status(403).json({
       success: false,
-      message:
-        "User already Exists, Please use different Email and Contact Number",
+      message: "Email Address or Contact is already registered..!!",
     });
   }
 
@@ -94,9 +95,10 @@ exports.register = BigPromise(async (req, res) => {
 exports.login = BigPromise(async (req, res) => {
   const { id, password } = req.body;
 
-  const token = req.headers["x-access-token"] || req.cookies.token;
+  const token =
+    req.headers["authorization"] && req.headers["authorization"].split(" ")[1];
 
-  if (token) {
+  if (token && token !== "null" && token !== "undefined") {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     if (decoded) {
@@ -117,14 +119,14 @@ exports.login = BigPromise(async (req, res) => {
   const user = await User.findOne({ $or: [{ email: id }, { contact: id }] });
 
   if (!user) {
-    return res.status(400).json({
+    return res.status(404).json({
       success: false,
       message: "No User Found..!!",
     });
   }
 
   if (!user.active) {
-    return res.status(400).json({
+    return res.status(403).json({
       success: false,
       message: "Sorry This account is closed, Please contact to Support..!!",
     });

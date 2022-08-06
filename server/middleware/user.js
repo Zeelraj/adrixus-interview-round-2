@@ -9,9 +9,10 @@ const jwt = require("jsonwebtoken");
  *
  */
 exports.isLoggedIn = BigPromise(async (req, res, next) => {
-  const token = req.headers["x-access-token"] || req.cookies.token;
+  const token =
+    req.headers["authorization"] && req.headers["authorization"].split(" ")[1];
 
-  if (!token) {
+  if (!token || token === "null" || token === "undefined") {
     return res.status(401).json({
       success: false,
       user: null,

@@ -4,18 +4,11 @@ require("dotenv").config();
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 
-// fore swagger documentation
-const swaggerUi = require("swagger-ui-express");
-const YAML = require("yamljs");
-
 // import all routes here
 const auth = require("./routes/auth");
 const user = require("./routes/user");
 
 const app = express();
-
-const swaggerDocument = YAML.load("./swagger.yaml");
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // regular middleware
 app.use(express.json());
@@ -39,7 +32,7 @@ app.use(function (req, res, next) {
   // Request headers you wish to allow
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type,x-access-token"
+    "X-Requested-With,content-type,Authorization"
   );
 
   // Set to true if you need the website to include cookies in the requests sent

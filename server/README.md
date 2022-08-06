@@ -12,6 +12,4 @@ It contains the code of the Backend Part of the Project. It will maintain the da
 6. jsonwebtoken (^8.5.1) - For Authentication Tokens
 7. mongoose (^6.5.1) - For MongoDB Database
 8. morgan (^1.10.0) - For Logs on the Console
-9. swagger-ui-express (^4.5.0) - For Swagger Docs
-10. validator (^13.7.0) - For Validation of the Values
-11. yamljs (^0.3.0) - Language of the Swagger docs file
+9. validator (^13.7.0) - For Validation of the Values

@@ -5,6 +5,6 @@ const { usersList } = require("../controllers/userController");
 const { isLoggedIn } = require("../middleware/user");
 
 // Basic Routes
-router.route("/users").get(isLoggedIn, usersList);
+router.route("/users/list").get(isLoggedIn, usersList);
 
 module.exports = router;
